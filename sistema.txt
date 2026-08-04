@@ -1,0 +1,114 @@
+O sistema deve ter:
+1. Cadastro de hóspedes
+
+Cada hóspede deve possuir:
+
+Nome
+CPF
+Telefone
+Email
+Data de nascimento
+Cidade
+Observações
+
+Você deve conseguir:
+
+Cadastrar
+Editar
+Excluir
+Pesquisar
+2. Cadastro de quartos
+
+Cada quarto deve possuir:
+
+Número
+Tipo (Solteiro, Casal, Luxo...)
+Valor diária
+Quantidade de camas
+Ar-condicionado (Sim/Não)
+TV
+Wi-Fi
+Situação
+
+Situação:
+
+Livre
+Ocupado
+Em limpeza
+Reservado
+3. Sistema de reservas
+
+Essa é a parte interessante.
+
+O usuário escolhe:
+
+Hóspede
+Quarto
+Data de entrada
+Data de saída
+
+O sistema precisa verificar:
+
+O quarto está livre?
+Já existe reserva nesse período?
+A data de saída é maior que a entrada?
+
+Se tudo estiver correto:
+
+Reserva criada.
+
+Caso contrário:
+
+Mensagem de erro.
+
+4. Check-in
+
+Ao fazer check-in:
+
+muda o status do quarto para "Ocupado"
+registra horário
+registra funcionário (pode ser fictício)
+5. Check-out
+
+Quando o cliente sair:
+
+O sistema calcula automaticamente:
+
+Quantidade de dias
+
+x
+
+Valor da diária
+
+=
+
+Total
+
+Depois:
+
+libera o quarto
+salva histórico
+6. Histórico
+
+Toda hospedagem deve ficar salva.
+
+Você pode pesquisar:
+
+pelo nome
+pelo CPF
+pela data
+7. Dashboard
+
+Mostra informações como:
+
+Quartos livres
+
+Quartos ocupados
+
+Reservas hoje
+
+Faturamento do mês
+
+Clientes hospedados
+
+Tudo calculado automaticamente.

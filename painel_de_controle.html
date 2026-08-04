@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script/buscar-cadastrar-cliente.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="janela-buscar-cliente">
+        <h2>Busque um cliente</h2>
+        <input type="text" id="cpf-cliente" placeholder="Cpf do cliente">
+        <button onclick="buscarcliente()">Entrar</button>
+    </div>
+    <div class="janela-cadastrar-cliente">
+        <h2>Cadastre um cliente</h2>
+        <input type="text" id="c-cpf-cliente" placeholder="Cpf do cliente">
+        <input type="text" id="nome-cliente" placeholder="Nome do cliente">
+        <input type="text" id="sobrenome-cliente" placeholder="sobrenome do cliente">
+        <input type="number" id="idade-cliente" placeholder="idade do cliente">
+        <button onclick="criarcadastrocliente()">Cadastrar</button>
+    </div>
+
+</body>
+
+</html>
