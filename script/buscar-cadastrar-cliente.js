@@ -10,6 +10,10 @@ function buscarcliente() {
 
     if (clienteEncontrado) {
         alert("cliente encontrado com sucesso!");
+        document.getElementById("info-nome-cliente").innerHTML = clienteEncontrado.nome;
+        document.getElementById("info-sobrenome-cliente").innerHTML = clienteEncontrado.sobrenome;
+        document.getElementById("info-idade-cliente").innerHTML = clienteEncontrado.idade;
+        
     } else {
         alert("cliente não encontrado.");
     }
