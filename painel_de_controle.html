@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script/sistema-cliente.js" defer></script>
-    <script src="script/sistema-quarto.js" defer></script>
+    <script src="script/script.js" defer></script>
     <title>Document</title>
 </head>
 
@@ -22,7 +21,18 @@
         <p>Idade: <span id="info-idade-cliente">Sem informações</span></p>
         <button onclick="editarcliente()">Editar</button>
         <button onclick="excluircliente()">Excluir</button>
-        <button onclick="adicionarquartoparacliente()">Add quarto</button>
+        <button onclick="">Reservar quarto</button>
+        <button onclick="fazercheckin()">Fazer check-in</button>
+        <div class="janela-fazer-reserva">
+            <h2> Fazer reserva</h2>
+            <label for="numero-do-quarto">Numero do quarto:</label>
+            <input type="number" id="numero-do-quarto-para-reserva" placeholder="numero do quarto">
+            <label for="data-entrada">Entrada:</label>
+            <input type="date" id="data-entrada">
+            <label for="data-saida">Saida:</label>
+            <input type="date" id="data-saida">
+            <button onclick="reservarquarto()">Reservar quarto</button>
+        </div>
     </div>
     <div class="janela-cadastrar-cliente">
         <h2>Cadastre um cliente</h2>
