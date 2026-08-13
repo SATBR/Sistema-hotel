@@ -214,7 +214,7 @@ function buscarreservas() {
 function fazercheckin(idreserva){
     let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
     // aqui ele pega o usuario e a senha e transforma o texto json em objeto javascript para verificação
-    let existe = checkins.some(u => u.id === idreserva);
+    let existe = checkins.some(u => u.idreserva === idreserva);
     // se existir o usuario a variavel "existe" fica true
     if (existe) {
         alert("Esse cliente já fez chekin.");
@@ -223,9 +223,10 @@ function fazercheckin(idreserva){
         const id = Math.floor(Math.random() * 90000000) + 10000000;
         let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
         const data = new Date();
-        const datac = agora.toLocaleString();
+        const datac = data.toLocaleString();
         checkins.push({
             id: id,
+            idreserva: idreserva,
             cpfcliente: ultimoclientebuscado,
             data: datac
             
@@ -233,4 +234,30 @@ function fazercheckin(idreserva){
         localStorage.setItem("checkins", JSON.stringify(checkins));
         alert("checkin feito com sucesso!");
     }
+}
+
+function buscarcheckins() {
+    let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
+    let checkinsEncontrados = checkins.filter(r => r.cpfcliente === ultimoclientebuscado);
+    if (checkinsEncontrados.length === 0) {
+        alert("Nenhum check-in encontrado.");
+        return;
+    }
+    let resultado = document.getElementById("lista-de-reservas");
+    resultado.innerHTML = "";
+
+    checkinsEncontrados.forEach(checkins => {
+
+        resultado.innerHTML += `
+        <div class="checkins">
+
+            <h3>Check-in id #${checkins.id}</h3>
+
+            <h3>Reserva id #${checkins.idreserva}</h3>
+
+            <p>Entrada: ${checkins.data}</p>
+
+        </div>`;
+
+    });
 }
