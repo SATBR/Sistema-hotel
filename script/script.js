@@ -180,6 +180,7 @@ function reservarquarto() {
         alert("Cadastro feito com sucesso");
     }
 }
+// #################### BUSCAR RESERVAS ###################
 function buscarreservas() {
     let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
     let reservasEncontradas = reservas.filter(r => r.cpfcliente === ultimoclientebuscado);
@@ -203,11 +204,33 @@ function buscarreservas() {
 
             <p>Saída: ${reserva.saida}</p>
 
-            <button onclick="fazerCheckin(${reserva.id})">
-                Fazer Check-in
-            </button>
+            <button onclick="fazercheckin(${reserva.id})">Fazer Check-in</button>
 
         </div>`;
 
     });
+}
+// #################### FAZER CHEK-IN ############################
+function fazercheckin(idreserva){
+    let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
+    // aqui ele pega o usuario e a senha e transforma o texto json em objeto javascript para verificação
+    let existe = checkins.some(u => u.id === idreserva);
+    // se existir o usuario a variavel "existe" fica true
+    if (existe) {
+        alert("Esse cliente já fez chekin.");
+        return;
+    } else {
+        const id = Math.floor(Math.random() * 90000000) + 10000000;
+        let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
+        const data = new Date();
+        const datac = agora.toLocaleString();
+        checkins.push({
+            id: id,
+            cpfcliente: ultimoclientebuscado,
+            data: datac
+            
+        });
+        localStorage.setItem("checkins", JSON.stringify(checkins));
+        alert("checkin feito com sucesso!");
+    }
 }
