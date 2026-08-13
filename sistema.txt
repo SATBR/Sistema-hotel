@@ -68,6 +68,15 @@ Ao fazer check-in:
 muda o status do quarto para "Ocupado"
 registra horário
 registra funcionário (pode ser fictício)
+colocar no check-in
+ id: 1,
+    cpfCliente: "12345678900",
+    numeroQuarto: 101,
+    idReserva: 1,
+    dataHora: "2026-08-10T14:32:00",
+    usuarioSistema: "recepcao01",
+    status: "Ativo"
+    
 5. Check-out
 
 Quando o cliente sair:

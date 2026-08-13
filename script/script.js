@@ -31,6 +31,7 @@ function criarcadastro() {
     }
 
 }
+let usuariologado
 // ################# LOGIN DO USUARIO #############
 function logar() {
     let usuario = document.getElementById("login-usuario").value
@@ -45,6 +46,7 @@ function logar() {
 
     if (usuarioEncontrado) {
         alert("Login realizado com sucesso!");
+        usuariologado = usuario
         window.location.href = "painel_de_controle.html";
     } else {
         alert("Usuário ou senha inválidos.");
@@ -177,4 +179,35 @@ function reservarquarto() {
         localStorage.setItem("reservas", JSON.stringify(reservas));
         alert("Cadastro feito com sucesso");
     }
+}
+function buscarreservas() {
+    let reservas = JSON.parse(localStorage.getItem("reservas")) || [];
+    let reservasEncontradas = reservas.filter(r => r.cpfcliente === ultimoclientebuscado);
+    if (reservasEncontradas.length === 0) {
+        alert("Nenhuma reserva encontrada.");
+        return;
+    }
+    let resultado = document.getElementById("lista-de-reservas");
+    resultado.innerHTML = "";
+
+    reservasEncontradas.forEach(reserva => {
+
+        resultado.innerHTML += `
+        <div class="reserva">
+
+            <h3>Reserva #${reserva.id}</h3>
+
+            <p>Quarto: ${reserva.numero}</p>
+
+            <p>Entrada: ${reserva.entrada}</p>
+
+            <p>Saída: ${reserva.saida}</p>
+
+            <button onclick="fazerCheckin(${reserva.id})">
+                Fazer Check-in
+            </button>
+
+        </div>`;
+
+    });
 }
